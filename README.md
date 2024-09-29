@@ -41,11 +41,17 @@ Discover your passion for sports and join a vibrant community of athletes at Dre
 `npm install`
 `npm run dev`
 
-Instructions on how to install, configure, and get the project running locally.
-
 ### Prerequisites
 
-- List any software or dependencies that need to be installed beforehand (if any).
+- Node.js: Ensure Node.js is installed for server-side operations and development dependencies.
+- npm or Yarn: Package managers (npm or Yarn) are required to manage dependencies and scripts.
+- React.js: The front-end framework for building dynamic user interfaces (if using React).
+- Tailwind CSS: CSS framework for building responsive and visually appealing designs.
+- MongoDB: If using a database, MongoDB or any other preferred database should be set up.
+- Redux Toolkit (optional): For managing global state in the application, especially useful for large-scale applications.
+- EmailJS or similar service (optional): For handling contact form submissions without the need for a backend.
+- ImgBB API (optional): For handling image uploads in the application.
+- Web Browser: A modern browser such as Chrome, Firefox, or Edge for testing and viewing the website.
 
 ### Installation Steps
 
