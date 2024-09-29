@@ -39,6 +39,7 @@ Discover your passion for sports and join a vibrant community of athletes at Dre
 
 ## Installation Guideline
 `npm install`
+`npm run dev`
 
 Instructions on how to install, configure, and get the project running locally.
 
