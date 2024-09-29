@@ -55,21 +55,27 @@ Discover your passion for sports and join a vibrant community of athletes at Dre
 
 ### Installation Steps
 
-1. Step-by-step instructions on how to install the project.
-2. Provide code examples or commands for clarity.
+1. Clone the Repository
+   First, clone the project repository from GitHub (or any version control platform) to your local machine.
+   `git clone https://github.com/hamimWebDev/assignment-5-L2.git`
+2. Navigate to the Project Directory
+   Change your working directory to the project folder.
+   `cd assignment-5-L2`
+3. Install Dependencies
+   Install all the required dependencies using either npm or Yarn.
+- Using npm:
+   `npm install`
+- Using yarv:
+   `yarn install`
+4. Build the Project for Production
+   When you’re ready to deploy, build the project for production.
+- Using npm:
+   `npm run build`
+- Using yarv:
+   `yarn build`
+### Live url link
+`https://66f9368febc91a00f85c2e44--venerable-daifuku-04f83a.netlify.app`
 
-### Configuration
 
-1. Create a `.env` file in the root directory of the project.
-2. Add necessary configuration variables in the `.env` file.
-   Example:
-   ```bash
-    PORT=3000
-    DB_URL=your_db_connection_uri
-    API_KEY=your_api_key_here
-   ```
-3. Explain any specific configuration requirements or variables used in your project.
 
-## Usage
 
-Instructions or examples for using the project. Include screenshots or code snippets if applicable.
