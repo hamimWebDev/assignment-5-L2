@@ -89,7 +89,14 @@ const router = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       { path: "/facilities", element: <AllFacultyRoute /> },
       { path: "/facility/:id", element: <FacultyDetails /> },
-      { path: "/booking/:id", element: <Booking /> },
+      {
+        path: "/booking/:id",
+        element: (
+          <ProtectedRoute requiredRole="user">
+            <Booking />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
   {
