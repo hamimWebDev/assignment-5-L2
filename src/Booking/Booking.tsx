@@ -88,7 +88,7 @@ const Booking = () => {
   return (
     <div>
       <h1 className="text-3xl font-semibold mb-6 text-center">Book Now</h1>
-      <div className="w-[60%] mx-auto bg-slate-100 shadow-lg p-6 mb-5 border-2 border-slate-200 rounded-lg">
+      <div className="w-[95%] lg:w-[60%] mx-auto bg-slate-100 shadow-lg p-6 mb-5 border-2 border-slate-200 rounded-lg">
         <h5 className="text-xl font-semibold mb-5">
           {name || "No Name Available"}
         </h5>

@@ -9,6 +9,8 @@ import { useGetUserQuery } from "../redux/features/admin/adminApi";
 const Admin = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const user = useAppSelector(useCurrentUser);
   const { data } = useGetUserQuery(user?.userId);
   const [isCreateAdminOrUserModalOpen, setIsCreateAdminOrUserModalOpen] =
@@ -22,6 +24,7 @@ const Admin = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start rtl:justify-end">
               <button
+                onClick={toggleSidebar}
                 data-drawer-target="logo-sidebar"
                 data-drawer-toggle="logo-sidebar"
                 aria-controls="logo-sidebar"
@@ -82,7 +85,9 @@ const Admin = () => {
       </nav>
       <aside
         id="logo-sidebar"
-        className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+        className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
         aria-label="Sidebar"
       >
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
