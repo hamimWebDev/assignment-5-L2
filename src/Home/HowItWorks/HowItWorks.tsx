@@ -1,13 +1,8 @@
-import { useState } from "react";
-import RegisterModal from "../../Login&Rregister/Rregister";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../redux/features/hooks";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
 
 const HowItWorks = () => {
-  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
-
-  const toggleModal = () => setIsRegisterModalOpen(!isRegisterModalOpen);
   const user = useAppSelector(useCurrentUser);
   return (
     <section className="pt-20 bg-gray-50">
@@ -33,14 +28,11 @@ const HowItWorks = () => {
               Quick and easy registration to get started on our platform with a
               seamless account creation process.
             </p>
-            <button
-              onClick={() => {
-                toggleModal();
-              }}
-              className="inline-flex items-center px-6 py-2 text-sm font-medium text-green-700 border border-green-700 rounded-full hover:bg-green-700 hover:text-white transition-colors duration-300"
-            >
-              Register Now &rarr;
-            </button>
+            <Link to={`/register`}>
+              <button className="inline-flex items-center px-6 py-2 text-sm font-medium text-green-700 border border-green-700 rounded-full hover:bg-green-700 hover:text-white transition-colors duration-300">
+                Register Now &rarr;
+              </button>
+            </Link>
           </div>
           {/* Card 2 */}
           <div className="flex flex-col items-center p-8 bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300  hover:bg-[#192335] text-gray-600 hover:text-white ">
@@ -88,10 +80,6 @@ const HowItWorks = () => {
           </div>
         </div>
       </div>
-      <RegisterModal
-        isRegisterModalOpen={isRegisterModalOpen}
-        setIsRegisterModalOpen={setIsRegisterModalOpen}
-      />
     </section>
   );
 };

@@ -2,18 +2,16 @@ import React, { useState } from "react";
 
 import { toast } from "sonner";
 
-
+import { useAppDispatch } from "./redux/features/hooks";
+import { setUser } from "./redux/features/auth/authSlice";
+import { verifyToken } from "./utils/verifyToken";
+import { useAddUserMutation } from "./redux/features/auth/authApi";
 import { useNavigate } from "react-router-dom";
-import { useAddUserMutation } from "../redux/features/auth/authApi";
-import { useAppDispatch } from "../redux/features/hooks";
-import { verifyToken } from "../utils/verifyToken";
-import { setUser } from "../redux/features/auth/authSlice";
 
 const RegisterRoute: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -32,7 +30,6 @@ const RegisterRoute: React.FC = () => {
       const res = (await addUser({
         name,
         email,
-        role,
         password,
         phone,
         address,
@@ -61,9 +58,15 @@ const RegisterRoute: React.FC = () => {
   };
 
   return (
-    <div className="mt-5 mb-5">
-      <div className="w-full lg:w-1/2 ml-0 lg:ml-96">
-        
+    <div className="flex justify-center items-center h-screen">
+      <div className="grid grid-cols-1 lg:grid-cols-2 h-[90%] rounded-md">
+        <div>
+          <img
+            src="https://i.ibb.co.com/ggKfyHC/DALL-E-2024-10-27-19-55-18-A-modern-and-vibrant-registration-themed-image-showing-a-user-signing-up.webp"
+            alt=""
+            className="w-full h-full rounded-l-md"
+          />
+        </div>
         <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
           <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
             <img
@@ -113,28 +116,6 @@ const RegisterRoute: React.FC = () => {
                   required
                 />
               </div>
-              <div>
-                    <label
-                      htmlFor="role"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Select Role
-                    </label>
-                    <select
-                      name="role"
-                      id="role"
-                      value={role}
-                      onChange={(e) => setRole(e.target.value)}
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                      required
-                    >
-                      <option value="" disabled>
-                        Choose a role
-                      </option>
-                      <option value="admin">Admin</option>
-                      <option value="user">User</option>
-                    </select>
-                  </div>
               <div className="relative">
                 <label
                   htmlFor="password"

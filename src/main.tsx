@@ -32,6 +32,8 @@ import FacultyDetails from "./Home/Facilities/FacultyDetails.tsx";
 import Booking from "./Booking/Booking.tsx";
 import BookingDetails from "./User/BookingDetails.tsx";
 import ScrollToTop from "react-scroll-to-top";
+import RegisterRoute from "./RegisterRoute.tsx";
+import CreateAdmin from "./Admin/CreateAdmin.tsx";
 
 export type TRole = "admin" | "user";
 
@@ -143,6 +145,7 @@ const router = createBrowserRouter([
       { path: "bookings", element: <AllBooking /> },
       { path: "add-faculties", element: <AddFaculties /> },
       { path: "faculties", element: <AllFaculties /> },
+      { path: "create-admin", element: <CreateAdmin /> },
       { path: "booking/:id", element: <BookingDetails /> },
     ],
   },
@@ -192,6 +195,7 @@ const router = createBrowserRouter([
   },
   { path: "*", element: <Page404 /> },
   { path: "/login", element: <LoginRoute /> },
+  { path: "/register", element: <RegisterRoute /> },
 ]);
 
 createRoot(document.getElementById("root")!).render(

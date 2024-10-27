@@ -1,10 +1,6 @@
-import { useState } from "react";
-import RegisterModal from "../Login&Rregister/Rregister";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
-
-  const toggleModal = () => setIsRegisterModalOpen(!isRegisterModalOpen);
   return (
     <div>
       <footer className="bg-[#0A1930] text-white py-12">
@@ -17,14 +13,11 @@ const Footer = () => {
             <p className="text-lg mb-6">
               Join our empowering sports community today and grow with us.
             </p>
-            <button
-              onClick={() => {
-                toggleModal();
-              }}
-              className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out"
-            >
-              Join With Us
-            </button>
+            <Link to={`/register`}>
+              <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out">
+                Join With Us
+              </button>
+            </Link>
           </div>
 
           {/* Footer Links */}
@@ -254,10 +247,6 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <RegisterModal
-        isRegisterModalOpen={isRegisterModalOpen}
-        setIsRegisterModalOpen={setIsRegisterModalOpen}
-      />
     </div>
   );
 };

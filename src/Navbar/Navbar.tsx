@@ -5,16 +5,15 @@ import {
   useCurrentToken,
   useCurrentUser,
 } from "../redux/features/auth/authSlice";
-import LoginModal from "../Login&Rregister/LoginModal";
+
 import { useAppDispatch, useAppSelector } from "../redux/features/hooks";
 import { useGetUserQuery } from "../redux/features/admin/adminApi";
 import Marquee from "react-fast-marquee";
 import SearchBar from "./SearchBar";
 
 const Navbar: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
+
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   const token = useAppSelector(useCurrentToken);
@@ -54,12 +53,11 @@ const Navbar: React.FC = () => {
                   Logout
                 </button>
               ) : (
-                <button
-                  onClick={toggleModal}
-                  className="ml-3 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600"
-                >
-                  Login
-                </button>
+                <Link to={`/login`}>
+                  <button className="ml-3 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600">
+                    Login
+                  </button>
+                </Link>
               )}
 
               {/* User Avatar */}
@@ -78,12 +76,6 @@ const Navbar: React.FC = () => {
                 </Link>
               )}
             </div>
-
-            {/* Login Modal */}
-            <LoginModal
-              isModalOpen={isModalOpen}
-              setIsModalOpen={setIsModalOpen}
-            />
           </div>
 
           {/* Main Nav Links for Desktop (md and above) */}
@@ -115,9 +107,7 @@ const Navbar: React.FC = () => {
             {user && (
               <Link
                 to={
-                  user.role === "admin"
-                    ? `/admin/dashboard`
-                    : `/user/dashboard`
+                  user.role === "admin" ? `/admin/dashboard` : `/user/dashboard`
                 }
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100"
               >
